@@ -1,8 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
   const task_input = document.getElementById("task_input");
   const addButton = document.getElementById("addButton");
-  const taskList = document.getElementById("taskList");
+  const tasksContainer = document.getElementById("tasksContainer");
   const emptyState = document.querySelector(".empty-state");
+
+  let taskList = document.getElementById("taskList");
+  if (!taskList) {
+    taskList = document.createElement("ul");
+    taskList.id = "taskList";
+    taskList.className = "task-list";
+    tasksContainer.appendChild(taskList);
+  }
 
   addButton.addEventListener("click", addTask);
 
@@ -35,10 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
     taskText.className = "task-text";
     taskText.textContent = text;
 
-    checkbox /
-      addEventListener("change", function () {
-        taskText.classList.toggle("complited", this.checked);
-      });
+    checkbox.addEventListener("change", function () {
+      taskText.classList.toggle("complited", this.checked);
+    });
     taskItem.appendChild(checkbox);
     taskItem.appendChild(taskText);
     taskList.appendChild(taskItem);
