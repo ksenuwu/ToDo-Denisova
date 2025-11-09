@@ -1,15 +1,17 @@
 * {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
   background-color: rgb(207, 237, 243);
+  min-height: 100vh;
 }
 header {
   display: flex;
   text-align: center;
   background-color: rgb(149, 213, 213);
+  padding: 1rem;
 }
 header img {
   height: 20vh;
@@ -34,11 +36,13 @@ main {
   gap: 2vw;
   margin-bottom: 2rem;
   border-radius: 10px;
+  padding: 1rem;
 }
 #task_input {
   flex: 1;
   padding: 1%;
   border-radius: 6px;
+  font-size: 16px;
   outline: none;
 }
 #addButton {
@@ -46,13 +50,17 @@ main {
   border-radius: 10px;
   font-size: 16px;
   font-weight: bold;
+  background: #ffffff;
 }
-.task-container {
-  background: white;
+#addButton:hover {
+  background: #ffffffc1;
+}
+.tasks-container {
   border-radius: 10px;
   min-height: 200px;
   display: flex;
   flex-direction: column;
+  justify-content: left;
 }
 .task-list {
   list-style: none;
@@ -73,6 +81,7 @@ main {
   border-bottom: 1px solid #f0f0f0;
   display: flex;
   align-items: center;
+  justify-content: left;
   gap: 1%;
 }
 .task-item:last-child {
@@ -88,4 +97,80 @@ main {
 }
 .task-text.complited {
   text-decoration: line-through;
+}
+@media (max-width: 768px) {
+  header {
+    padding: 0.75rem;
+  }
+
+  header img {
+    height: 50px;
+  }
+
+  .header-center h1 {
+    font-size: 2.5rem;
+  }
+
+  main {
+    margin: 1.5rem auto;
+    padding: 0 0.75rem;
+  }
+
+  .input-section {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  #task_input {
+    width: 100%;
+  }
+
+  #addButton {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .task-item {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  header img {
+    height: 40px;
+  }
+
+  .header-center h1 {
+    font-size: 2rem;
+  }
+
+  main {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
+
+  .input-section {
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .task-item {
+    padding: 0.5rem;
+    gap: 10px;
+  }
+
+  .task-text {
+    font-size: 14px;
+  }
+
+  .empty-state {
+    padding: 2rem 1rem;
+    font-size: 14px;
+  }
 }
