@@ -55,6 +55,33 @@ main {
 #addButton:hover {
   background: #ffffffc1;
 }
+.filter-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: #f0f0f0;
+}
+
+.filter-btn.active {
+  background: rgb(149, 213, 213);
+  color: white;
+  border-color: rgb(149, 213, 213);
+}
 .tasks-container {
   border-radius: 10px;
   min-height: 200px;
@@ -83,6 +110,9 @@ main {
   align-items: center;
   justify-content: left;
   gap: 1%;
+}
+.task-item.hidden {
+  display: none;
 }
 .task-item:last-child {
   border-bottom: none;
@@ -129,6 +159,15 @@ main {
     width: 100%;
     padding: 14px;
   }
+  .filter-section {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    flex: 1;
+    min-width: 80px;
+  }
 
   .task-item {
     padding: 0.75rem;
@@ -157,6 +196,9 @@ main {
 
   .input-section {
     padding: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .filter-section {
     margin-bottom: 1.5rem;
   }
 
