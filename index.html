@@ -27,11 +27,30 @@
         <button class="filter-btn" data-filter="active">Активные</button>
         <button class="filter-btn" data-filter="completed">Выполненные</button>
       </div>
+      <div class="columns-container">
+        <div class="column" data-tag="университет">
+          <h2>Университет</h2>
+          <div class="task-column" id="university-tasks"></div>
+        </div>
+
+        <div class="column" data-tag="дом">
+          <h2>Дом</h2>
+          <div class="task-column" id="home-tasks"></div>
+        </div>
+
+        <div class="column" data-tag="работа">
+          <h2>Работа</h2>
+          <div class="task-column" id="work-tasks"></div>
+        </div>
+      </div>
       <div id="tasksContainer" class="tasks-container">
         <div class="empty-state">Список дел пуст. Добавьте первую задачу!</div>
         <ul id="taskList" class="task-list"></ul>
       </div>
     </main>
+    <footer>
+      <h1>2252 Денисова Ксения</h1>
+    </footer>
   </body>
   <script src="code.js"></script>
 </html>
