@@ -32,6 +32,45 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  function enableTaskEditing(taskItem, taskId, taskTextElement) {
+    const currentText = taskTextElement.textContent;
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = currentText;
+    input.className = "task-edit-input";
+
+    taskTextElement.style.display = "none";
+    taskTextElement.parentNode.insertBefore(input, taskTextElement);
+    input.focus();
+    input.select();
+
+    const saveEdit = function () {
+      const newText = input.value.trim();
+
+      if (newText && newText !== currentText) {
+        taskTextElement.textContent = newText;
+
+        const taskIndex = tasks.findIndex((t) => t.id === taskId);
+        if (taskIndex !== -1) {
+          tasks[taskIndex].text = newText;
+          updateStorage();
+        }
+      }
+
+      taskTextElement.style.display = "";
+      input.remove();
+    };
+
+    input.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        saveEdit();
+      }
+    });
+
+    input.addEventListener("blur", saveEdit);
+  }
+
   function addTask() {
     const inputText = task_input.value.trim();
 
@@ -126,6 +165,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       applyFilter();
       updateStorage();
+    });
+
+    taskText.addEventListener("dblclick", function () {
+      enableTaskEditing(taskItem, taskId, taskText);
     });
 
     taskItem.addEventListener("dragstart", function (e) {

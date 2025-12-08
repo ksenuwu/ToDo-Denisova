@@ -142,6 +142,7 @@ main {
 
 .task-text {
   font-size: 14px;
+  cursor: pointer;
 }
 
 .task-text.completed {
@@ -169,6 +170,23 @@ main {
 
 .tasks-container {
   display: none;
+}
+
+.task-edit-input {
+  width: 100%;
+  padding: 4px 8px;
+  border: 2px solid rgb(149, 213, 213);
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  background: white;
+}
+
+.task-edit-input:focus {
+  border-color: rgb(42, 79, 89);
+  box-shadow: 0 0 0 3px rgba(149, 213, 213, 0.3);
 }
 
 footer {
