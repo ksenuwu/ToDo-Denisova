@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  function enableTaskEditing(taskItem, taskId, taskTextElement) {
+  function enableTaskEditing(taskId, taskTextElement) {
     const currentText = taskTextElement.textContent;
 
     const input = document.createElement("input");
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const parts = inputText.split(",");
+    const parts = inputText.split("/");
     let taskText = parts[0].trim();
     let tag = "дом";
 
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     taskText.addEventListener("dblclick", function () {
-      enableTaskEditing(taskItem, taskId, taskText);
+      enableTaskEditing(taskId, taskText);
     });
 
     taskItem.addEventListener("dragstart", function (e) {
